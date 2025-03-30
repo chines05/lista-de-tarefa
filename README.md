@@ -1,12 +1,65 @@
-# React + Vite
+# 🚀 Gerenciador de Tarefas - React + TypeScript
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## ✨ Funcionalidades (CRUD Completo)
 
-Currently, two official plugins are available:
+- **Criar** novas tarefas com título e descrição
+- **Visualizar** lista de tarefas com status
+- **Atualizar** tarefas (editar conteúdo e marcar como concluída)
+- **Remover** tarefas da lista
+- Interface responsiva e intuitiva
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🛠 Tecnologias
 
-## Expanding the ESLint configuration
+- ![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
+- ![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white)
+- ![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)
 
-If you are developing a production application, we recommend using TypeScript and enable type-aware lint rules. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## 💻 Instalação
+
+Clone o repositório:
+
+```bash
+git clone https://github.com/seu-usuario/gerenciador-tarefas.git
+```
+
+Acesse a pasta do projeto:
+
+```bash
+cd gerenciador-tarefas
+```
+
+Instale as dependências:
+
+```bash
+npm install
+# ou
+yarn
+```
+
+## 🚀 Execução
+
+Modo desenvolvimento:
+
+```bash
+npm run dev
+```
+
+Acesse: http://localhost:5173
+
+## 🗂 Estrutura do Projeto
+
+```bash
+src/
+├── components/
+│   ├── AddTask.tsx    # Formulário de adição
+│   ├── Task.tsx       # Item de tarefa individual
+│   └── ViewTask.tsx   # Página de detalhes
+├── App.tsx            # Rotas principais
+├── main.tsx           # Ponto de entrada
+├── vite-env.d.ts      # Tipos Vite
+public/                # Assets estáticos
+├── preview.png        # Screenshot do projeto
+tsconfig.json          # Config TS
+vite.config.ts         # Config Vite
+package.json           # Dependências e scripts
+```
