@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import AddTask from "./components/AddTask";
 import { Routes, Route } from "react-router-dom";
 import ViewTask from "./components/ViewTask";
@@ -12,7 +12,13 @@ interface ITask {
 }
 
 function App() {
-  const [tasks, setTasks] = useState<ITask[]>([]);
+  const [tasks, setTasks] = useState<ITask[]>(
+    JSON.parse(localStorage.getItem("tasks") || "[]")
+  );
+
+  useEffect(() => {
+    localStorage.setItem("tasks", JSON.stringify(tasks));
+  }, [tasks]);
 
   const handleAddTask = (title: string, description: string) => {
     const newTask: ITask = {
