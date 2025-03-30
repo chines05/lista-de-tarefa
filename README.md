@@ -48,7 +48,7 @@ Acesse: http://localhost:5173
 
 ### 🔗 Deploy
 
-Acesse a versão online do projeto: [Gerenciador de Tarefas](https://lista-de-tarefa-73ebfojhp-chines05s-projects.vercel.app/)
+Acesse a versão online do projeto: [Gerenciador de Tarefas](https://lista-de-tarefa-73ebfojhp-chines05s-projects.vercel.app/){:target="\_blank"}{:target="\_blank"}
 
 ## 🗂 Estrutura do Projeto
 
