@@ -1,11 +1,15 @@
 import { useState } from "react";
 import { Plus } from "lucide-react";
 
-function AddTask({ handleAddTask }) {
+interface AddTaskProps {
+  handleAddTask: (title: string, description: string) => void;
+}
+
+function AddTask({ handleAddTask }: AddTaskProps) {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
 
-  const handleSubmit = (e) => {
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (title.trim() === "") return;
 

@@ -1,15 +1,21 @@
-// App.jsx
 import { useState } from "react";
 import AddTask from "./components/AddTask";
-import Task from "./components/Task";
 import { Routes, Route } from "react-router-dom";
 import ViewTask from "./components/ViewTask";
+import Task from "./components/Task";
+
+interface ITask {
+  id: number;
+  title: string;
+  description: string;
+  isCompleted: boolean;
+}
 
 function App() {
-  const [tasks, setTasks] = useState([]);
+  const [tasks, setTasks] = useState<ITask[]>([]);
 
-  const handleAddTask = (title, description) => {
-    const newTask = {
+  const handleAddTask = (title: string, description: string) => {
+    const newTask: ITask = {
       id: Date.now(),
       title,
       description,
@@ -18,7 +24,7 @@ function App() {
     setTasks([...tasks, newTask]);
   };
 
-  const handleTask = (taskId) => {
+  const handleTask = (taskId: number) => {
     setTasks(
       tasks.map((task) =>
         task.id === taskId ? { ...task, isCompleted: !task.isCompleted } : task
@@ -26,11 +32,15 @@ function App() {
     );
   };
 
-  const handleDeleteTask = (taskId) => {
+  const handleDeleteTask = (taskId: number) => {
     setTasks(tasks.filter((task) => task.id !== taskId));
   };
 
-  const handleEditTask = (taskId, newTitle, newDescription) => {
+  const handleEditTask = (
+    taskId: number,
+    newTitle: string,
+    newDescription: string
+  ) => {
     setTasks(
       tasks.map((task) =>
         task.id === taskId

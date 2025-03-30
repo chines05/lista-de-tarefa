@@ -10,9 +10,26 @@ import {
 import { useNavigate, useParams } from "react-router-dom";
 import { useState } from "react";
 
-function ViewTask({ tasks, handleEditTask, handleDeleteTask }) {
+interface Task {
+  id: number;
+  title: string;
+  description: string;
+  isCompleted: boolean;
+}
+
+interface ViewTaskProps {
+  tasks: Task[];
+  handleEditTask: (
+    taskId: number,
+    newTitle: string,
+    newDescription: string
+  ) => void;
+  handleDeleteTask: (taskId: number) => void;
+}
+
+function ViewTask({ tasks, handleEditTask, handleDeleteTask }: ViewTaskProps) {
   const navigate = useNavigate();
-  const { taskId } = useParams();
+  const { taskId } = useParams<{ taskId: string }>();
   const task = tasks.find((task) => task.id === Number(taskId));
   const [isEditing, setIsEditing] = useState(false);
   const [editedTitle, setEditedTitle] = useState(task?.title || "");
@@ -29,6 +46,7 @@ function ViewTask({ tasks, handleEditTask, handleDeleteTask }) {
   }
 
   const handleSave = () => {
+    if (!editedTitle.trim()) return;
     handleEditTask(task.id, editedTitle, editedDescription);
     setIsEditing(false);
   };

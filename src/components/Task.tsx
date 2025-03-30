@@ -1,7 +1,20 @@
 import { Check, ChevronRightIcon, Trash2 } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 
-function Task({ tasks, handleTask, handleDeleteTask }) {
+interface Task {
+  id: number;
+  title: string;
+  description: string;
+  isCompleted: boolean;
+}
+
+interface TaskProps {
+  tasks: Task[];
+  handleTask: (taskId: number) => void;
+  handleDeleteTask: (taskId: number) => void;
+}
+
+function Task({ tasks, handleTask, handleDeleteTask }: TaskProps) {
   const navigate = useNavigate();
 
   if (tasks.length === 0) {
@@ -36,9 +49,7 @@ function Task({ tasks, handleTask, handleDeleteTask }) {
                 >
                   {task.isCompleted && <Check size={14} />}
                 </span>
-                <span
-                  className={`${task.isCompleted ? "line-through italic" : ""}`}
-                >
+                <span className={task.isCompleted ? "line-through italic" : ""}>
                   {task.title}
                 </span>
               </button>
